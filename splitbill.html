@@ -1,11 +1,412 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    ejjrutrgt
-</body>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SplitUp - Split Bills Easily</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f49d25",
+              "background-light": "#f8f7f5",
+              "background-dark": "#221a10",
+              "pastel-green": "#e0f2f1",
+              "pastel-peach": "#ffe0b2",
+              "pastel-lavender": "#f3e5f5",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+            animation: {
+              "bounce-slow": "bounce 3s infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f8f7f5;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e0e0e0;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d0d0d0;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-[#1c160d] dark:text-white font-display antialiased overflow-x-hidden transition-colors duration-300"
+  >
+    <!-- Main Container -->
+    <div class="relative flex min-h-screen flex-col">
+      <!-- Header -->
+      <header
+        class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-light/80 dark:bg-background-dark/80 border-b border-[#f4eee7] dark:border-white/10 px-4 sm:px-10 py-3"
+      >
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-3 cursor-pointer">
+            <div
+              class="size-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary"
+            >
+              <span class="material-symbols-outlined text-3xl"
+                >receipt_long</span
+              >
+            </div>
+            <h2
+              class="text-[#1c160d] dark:text-white text-xl font-bold tracking-tight"
+            >
+              SplitUp
+            </h2>
+          </div>
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex items-center gap-8">
+            <nav class="flex items-center gap-6">
+              <a
+                class="text-[#1c160d]/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors"
+                href="#"
+                >About</a
+              >
+              <a
+                class="text-[#1c160d]/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors"
+                href="#"
+                >How it works</a
+              >
+            </nav>
+            <button
+              class="flex items-center justify-center rounded-xl h-10 px-6 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-all transform hover:scale-105 shadow-lg shadow-primary/20"
+            >
+              Login
+            </button>
+          </div>
+          <!-- Mobile Menu Icon -->
+          <button class="md:hidden p-2 text-[#1c160d] dark:text-white">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </header>
+      <!-- Hero Section -->
+      <main
+        class="flex-1 flex flex-col items-center justify-center relative overflow-hidden"
+      >
+        <!-- Background Decorative Blobs -->
+        <div
+          class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-pastel-peach/40 dark:bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse"
+        ></div>
+        <div
+          class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-pastel-green/40 dark:bg-teal-900/10 rounded-full blur-3xl -z-10"
+        ></div>
+        <div
+          class="absolute top-[40%] left-[60%] w-[300px] h-[300px] bg-pastel-lavender/40 dark:bg-purple-900/10 rounded-full blur-3xl -z-10"
+        ></div>
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-10 py-12 lg:py-20">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div
+              class="flex flex-col gap-6 text-center lg:text-left z-10 order-2 lg:order-1"
+            >
+              <div class="space-y-4">
+                <span
+                  class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2"
+                >
+                  New Way to Split
+                </span>
+                <h1
+                  class="text-[#1c160d] dark:text-white text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight"
+                >
+                  SplitUp
+                </h1>
+                <h2
+                  class="text-2xl sm:text-3xl font-bold text-[#1c160d]/80 dark:text-white/80 leading-snug"
+                >
+                  Solusi mudah untuk
+                  <span
+                    class="text-primary underline decoration-wavy decoration-2 underline-offset-4"
+                    >split bill</span
+                  >
+                  &amp; patungan.
+                </h2>
+                <p
+                  class="text-lg text-[#1c160d]/60 dark:text-white/60 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed"
+                >
+                  Website ini membantu membagi tagihan makan dengan teman secara
+                  adil, cepat, dan tanpa ribet. Gak ada lagi awkward moment pas
+                  bayar!
+                </p>
+              </div>
+              <!-- Action Buttons -->
+              <div
+                class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
+              >
+                <button
+                  class="group flex items-center justify-center gap-3 h-14 px-8 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold text-lg shadow-xl shadow-primary/25 transition-all transform hover:-translate-y-1 hover:scale-[1.02]"
+                >
+                  <span
+                    class="material-symbols-outlined group-hover:rotate-12 transition-transform"
+                    >receipt_long</span
+                  >
+                  <span>Split Bill</span>
+                </button>
+                <button
+                  class="group flex items-center justify-center gap-3 h-14 px-8 bg-white dark:bg-white/10 border-2 border-[#f4eee7] dark:border-white/10 hover:border-primary/50 text-[#1c160d] dark:text-white rounded-xl font-bold text-lg shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 hover:bg-background-light dark:hover:bg-white/5"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
+                    >savings</span
+                  >
+                  <span>Patungan</span>
+                </button>
+              </div>
+              <!-- Social Proof / Trust -->
+              <div
+                class="pt-8 flex items-center justify-center lg:justify-start gap-4"
+              >
+                <div class="flex -space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#221a10] bg-gray-200 overflow-hidden"
+                    data-alt="User avatar 1"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSHPNKNUnRtaaX3WSzvOab0sSZBa4DjmWRMfU1YC0OZhFBfzHlr4zeEy8hVxRrV8rd3RBBFZXhr-mt_F6nlX8s-qisI6sjcliAdRXWIJcckETfjKxaKWwnjT6z8WdSrUAET1Vpz5cbOmG8zaqUy3b7OnGCjXcEPiq3LLYv8_Uo8ikmh_E2988J7LuEEKrGTaZIAqDIcIL7SG_T5-HRvfN_SGoOlbSrNrTwJNnM-JEqnGYAyHnYr7vGkUC_oaK1a8K0IFLqBO6oDXM');
+                      background-size: cover;
+                    "
+                  ></div>
+                  <div
+                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#221a10] bg-gray-200 overflow-hidden"
+                    data-alt="User avatar 2"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-g253N0k3QZN8SrPa92Dg0YtxOZUeBQ8A4tpbUooRdmThQQVdMmHbMtlb93KEbDZrwml3vdsn7XEcnjHd3tzBmKr9BUvh1fB-uGRIdcvncEwvZcezMDuiV4Wue-y6nhClBO5Pqitrti1aJRoVpqoZa3GMY_4v1jHsbaGxys6v5OI-c7awcJZFsCMuEb3YrXZDH5DxOLuQyGPJJvyVVXhz_CD33vevTILhfTYeaWIzyTyYBr93hePUxLIloZoOnJjTSP3zzbPsqX8');
+                      background-size: cover;
+                    "
+                  ></div>
+                  <div
+                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#221a10] bg-gray-200 overflow-hidden"
+                    data-alt="User avatar 3"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqjuSFL-maY02uNnJNwVoZ5s8xKtU7JfgLTiZvUemqGcSzAccwhiaydnay8j8AmmyMcfY6b_cAvFxt_z-IlFp-BLLZ9MPdGVuBNjL6yLX9P4qXFkOGIms7ZxH5m2jHbNaB2Er7crFKLS9ufaNymiqZrQUN9Noi1TrrKjVxj7OEfDChBnW74_rFYKpytwqxJY7im9ygE_Ud2fe2oWAQdXH9rUkV47nqcQlezsv8aOtQS5gVtVIuBHt04NieiWjE1W-sN-3NQ_F56Tc');
+                      background-size: cover;
+                    "
+                  ></div>
+                  <div
+                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#221a10] bg-primary flex items-center justify-center text-white text-xs font-bold"
+                  >
+                    1k+
+                  </div>
+                </div>
+                <p
+                  class="text-sm font-medium text-[#1c160d]/60 dark:text-white/60"
+                >
+                  Teman patungan lainnya
+                </p>
+              </div>
+            </div>
+            <!-- Hero Image / Illustration -->
+            <div class="relative order-1 lg:order-2 flex justify-center">
+              <!-- Abstract doodle card container -->
+              <div class="relative w-full max-w-md aspect-square">
+                <div
+                  class="absolute inset-0 bg-primary/10 rounded-[2rem] transform rotate-3 scale-105"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-white dark:bg-white/5 rounded-[2rem] shadow-2xl border border-[#f4eee7] dark:border-white/10 overflow-hidden flex items-center justify-center p-8 transform -rotate-2 hover:rotate-0 transition-all duration-500 ease-in-out"
+                >
+                  <div
+                    class="w-full h-full bg-contain bg-center bg-no-repeat"
+                    data-alt="Illustration of diverse friends eating together around a table, sharing food and drinks, flat doodle style"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVMu0EvauMowHLLKAjDr0KWqJRr94F2fvEIVHzw_nID0SAWG9LUig7plurlfOBORSVTquDncRzlOsU3hR_5ZBvTAL8JM9Spjqo98D9tLUBewRSmAWC77FqnTesLsLhRzLys4r6IBKGTfwQsZBsnxGMmSLZ7lKKDwiJ0IIBxBq650oCdP_UelSDgDvOFzUG6oTG-9oMTg8aifvcgSkcqCaCNnw_7OvHsLh0s1dgxuhxyVFjQkSIGrWbUci3ifLX6y5rrV7Lj5z_Xbg');
+                    "
+                  ></div>
+                  <!-- Floating UI Elements for decoration -->
+                  <div
+                    class="absolute top-6 right-6 bg-white dark:bg-[#332a20] p-3 rounded-xl shadow-lg animate-bounce-slow"
+                  >
+                    <div class="flex items-center gap-2">
+                      <div class="size-2 bg-green-500 rounded-full"></div>
+                      <span
+                        class="text-xs font-bold text-[#1c160d] dark:text-white"
+                        >Total: Rp 150.000</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-8 left-8 bg-white dark:bg-[#332a20] p-3 rounded-xl shadow-lg animate-bounce-slow"
+                    style="animation-delay: 1.5s"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="material-symbols-outlined text-primary text-sm"
+                        >check_circle</span
+                      >
+                      <span
+                        class="text-xs font-bold text-[#1c160d] dark:text-white"
+                        >Paid by Sarah</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Features Quick View (Optional Filler for 'Single Page' feel) -->
+      <section
+        class="w-full bg-white dark:bg-white/5 py-16 px-4 sm:px-10 border-t border-[#f4eee7] dark:border-white/5"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div
+              class="flex flex-col gap-4 p-6 rounded-2xl bg-background-light dark:bg-background-dark border border-transparent hover:border-primary/20 transition-all"
+            >
+              <div
+                class="size-12 rounded-xl bg-pastel-peach text-primary flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined">calculate</span>
+              </div>
+              <h3 class="text-xl font-bold text-[#1c160d] dark:text-white">
+                Hitung Otomatis
+              </h3>
+              <p class="text-[#1c160d]/70 dark:text-white/70">
+                Masukkan harga, pajak, dan layanan. Kami hitung sisanya sampai
+                perak terakhir.
+              </p>
+            </div>
+            <!-- Feature 2 -->
+            <div
+              class="flex flex-col gap-4 p-6 rounded-2xl bg-background-light dark:bg-background-dark border border-transparent hover:border-primary/20 transition-all"
+            >
+              <div
+                class="size-12 rounded-xl bg-pastel-green text-teal-600 flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined">share</span>
+              </div>
+              <h3 class="text-xl font-bold text-[#1c160d] dark:text-white">
+                Share Link
+              </h3>
+              <p class="text-[#1c160d]/70 dark:text-white/70">
+                Tinggal copy link tagihan dan kirim ke grup WhatsApp teman kamu.
+              </p>
+            </div>
+            <!-- Feature 3 -->
+            <div
+              class="flex flex-col gap-4 p-6 rounded-2xl bg-background-light dark:bg-background-dark border border-transparent hover:border-primary/20 transition-all"
+            >
+              <div
+                class="size-12 rounded-xl bg-pastel-lavender text-purple-600 flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined">qr_code_scanner</span>
+              </div>
+              <h3 class="text-xl font-bold text-[#1c160d] dark:text-white">
+                Scan Receipt
+              </h3>
+              <p class="text-[#1c160d]/70 dark:text-white/70">
+                Malas ketik? Foto struk makan kamu dan biarkan AI kami
+                membacanya.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer
+        class="bg-background-light dark:bg-background-dark py-12 px-5 border-t border-[#f4eee7] dark:border-white/10"
+      >
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-8">
+          <!-- Links -->
+          <div
+            class="flex flex-wrap items-center justify-center gap-8 text-center"
+          >
+            <a
+              class="text-[#9c7a49] dark:text-[#d4b991] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >About Us</a
+            >
+            <a
+              class="text-[#9c7a49] dark:text-[#d4b991] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Contact</a
+            >
+            <a
+              class="text-[#9c7a49] dark:text-[#d4b991] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-[#9c7a49] dark:text-[#d4b991] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Terms of Service</a
+            >
+          </div>
+          <!-- Socials -->
+          <div class="flex items-center gap-6">
+            <a class="group" href="#">
+              <div
+                class="size-10 flex items-center justify-center rounded-full bg-[#f4eee7] dark:bg-white/10 text-[#9c7a49] dark:text-white group-hover:bg-primary group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined">thumb_up</span>
+              </div>
+              <!-- Placeholder for social icon, using generic -->
+            </a>
+            <a class="group" href="#">
+              <div
+                class="size-10 flex items-center justify-center rounded-full bg-[#f4eee7] dark:bg-white/10 text-[#9c7a49] dark:text-white group-hover:bg-primary group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined">chat_bubble</span>
+              </div>
+            </a>
+            <a class="group" href="#">
+              <div
+                class="size-10 flex items-center justify-center rounded-full bg-[#f4eee7] dark:bg-white/10 text-[#9c7a49] dark:text-white group-hover:bg-primary group-hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined">mail</span>
+              </div>
+            </a>
+          </div>
+          <!-- Copyright -->
+          <p class="text-[#9c7a49] dark:text-[#d4b991]/60 text-sm font-normal">
+            © 2024 SplitUp. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
